@@ -28,7 +28,7 @@ _./config/config.json_
 
 > For production applications instead of this `config.json` create **config.js** and export the configurations. We can then use envornment variables in the same using `dotenv`
 
-## Creating Models
+## Models and Migrations
 
 - We can create models from the Sequelize CLI
   ```bash
@@ -43,3 +43,15 @@ _./config/config.json_
     - `up`: Apply the migrations
     - `down`: Undo the migrations
   - We can manually update the migration file to fit our needs
+- Creating references(associations)
+  - We can directly specify that in the migrations
+  - ```js
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "user",
+          key: "id",
+        },
+      },
+    ```
