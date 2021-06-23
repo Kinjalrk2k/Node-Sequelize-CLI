@@ -55,3 +55,12 @@ _./config/config.json_
         },
       },
     ```
+
+## Seed the database
+
+- We can populate the database with some dummy data, using seeders.
+- Using the Sequelize CLI run:
+  ```bash
+    npx sequelize-cli seed:generate --name demo-user
+  ```
+- It will create a seeder file with `up` and `down` functions. We'll use `bulkInsert` to seed multiple rows
