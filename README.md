@@ -27,3 +27,19 @@ _./config/config.json_
 ```
 
 > For production applications instead of this `config.json` create **config.js** and export the configurations. We can then use envornment variables in the same using `dotenv`
+
+## Creating Models
+
+- We can create models from the Sequelize CLI
+  ```bash
+  npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string
+  ```
+- This will create:
+  - a model file at: _./models/user.js_
+  - a migration file at: _./migrations/XXXXXXXXXXXXXX-create-user.js_
+- Note:
+  - Every model is like a table in our database. The model here is a javascript class.
+  - The migration has two functions:
+    - `up`: Apply the migrations
+    - `down`: Undo the migrations
+  - We can manually update the migration file to fit our needs
